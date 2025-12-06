@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로젝트 디테일</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <nav id="top-nav" class="nav nav--visible" aria-label="상단 네비게이션">
+    <div class="nav__brand"><span class="nav__dot"></span> Portfolio</div>
+    <div class="nav__menu">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-left">
+      <div class="breadcrumb" data-breadcrumb></div>
+      <h1 class="page-title" data-title></h1>
+    </div>
+
+    <p class="page-hero-right page-desc" data-desc></p>
+  </header>
+
+  <main class="page">
+    <div class="slider" aria-label="프로젝트 슬라이드">
+      <div id="slides" class="slides"></div>
+      <button id="prev-btn" class="slider__control prev" aria-label="이전 슬라이드">‹</button>
+      <button id="next-btn" class="slider__control next" aria-label="다음 슬라이드">›</button>
+    </div>
+    <div class="project-meta" data-notes></div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <div class="footer__brand">Jisu Park Portfolio</div>
+      <p class="footer__desc">선택한 프로젝트의 결과물을 브라운 톤 무드로 소개합니다.</p>
+    </div>
+    <div>
+      <div class="footer__title">Contact</div>
+      <ul class="footer__list">
+        <li>Phone: 010.4924.9326</li>
+        <li>Email: parkjsu05@naver.com</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__title">Navigation</div>
+      <ul class="footer__list">
+        <li><a href="index.html#projects">Back to Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<!-- 메인 스크립트 -->
+<script src="assets/main.js"></script>
+
+<!-- 프로젝트 데이터 먼저 로드 -->
+<script src="assets/projects.js"></script>
+
+<!-- 상세 페이지 로직 -->
+<script src="assets/project-detail.js"></script>
+</body>
+</html>
