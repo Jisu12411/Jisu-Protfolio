@@ -885,21 +885,19 @@ section {
   text-align: left;
 }
 
-/* Two-column blocks (education & work) */
 .about-two-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
-/* wide PC 이미지 전용 */
 .mock-image.real:not(.tall) {
   width: 100%;
   height: auto;
   max-height: none;
 
-  object-fit: cover;      /* 여백 없이 꽉 채우기 */
-  aspect-ratio: 16.9 / 6;   /* 배너 비율 유지 (원하면 조절 가능) */
+  object-fit: cover;
+  aspect-ratio: 16.9 / 6; 
 
   border-radius: 12px;
 }
@@ -913,4 +911,5 @@ section {
     height: auto;
     object-fit: contain;
 }
+
 
