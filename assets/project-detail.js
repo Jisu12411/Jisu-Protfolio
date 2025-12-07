@@ -46,7 +46,7 @@ function renderProject(project) {
   titleEl.textContent = project.title;
   descEl.innerHTML = currentProject.description;
 
-  // 🔥 여기서 버튼 자동 생성
+  // 여기서 버튼 자동 생성
   if (notesEl) {
     notesEl.innerHTML = '';
 
@@ -89,8 +89,8 @@ function renderProject(project) {
 
     ORDER.forEach((item) => {
       const url = linkMap[item.slug];
-      if (!url) return; // 이 프로젝트에 해당 링크가 없으면 스킵
-      if (item.slug === project.slug) return; // 자기 자신 페이지는 버튼 생성 X
+      if (!url) return;
+      if (item.slug === project.slug) return;
 
       addBtn(item.label, url);
     });
@@ -118,9 +118,9 @@ function renderProject(project) {
   updateSlidePosition(true);
 }
 
-/**
- * 현재 슬라이드 index에 맞춰 위치/사이즈 재계산
- */
+
+ // 현재 슬라이드 index에 맞춰 위치/사이즈 재계산
+
 function updateSlidePosition(isFirst = false) {
   slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
 
@@ -131,9 +131,9 @@ function updateSlidePosition(isFirst = false) {
   applySlideLayout(isFirst);
 }
 
-/**
- * 현재 슬라이드 width에 맞춘 레이아웃 적용
- */
+
+ // 현재 슬라이드 width에 맞춘 레이아웃 적용
+
 function applySlideLayout() {
   const slideData = currentProject.slides[currentIndex];
   sliderEl.style.width = slideData.width || '100%';
@@ -221,3 +221,4 @@ function init() {
 }
 
 init();
+
