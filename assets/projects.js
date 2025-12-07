@@ -130,7 +130,7 @@ const PROJECT_DATA = [
     label: 'Project · Detail Page',
     title: '상세페이지',
     description:
-      '제품의 강점을 구조적으로 정리하여 설득력을 높였으며,,<br>시각적 흐름과 정보 전달의 균형을 고려해 구성했습니다.',
+      '제품의 강점을 구조적으로 정리하여 설득력을 높였으며,<br>시각적 흐름과 정보 전달의 균형을 고려해 구성했습니다.',
     links: {
       mainbanner: 'project.html?slug=main-banner',
       landing: 'project.html?slug=landing-page',
@@ -259,3 +259,4 @@ const PROJECT_DATA = [
     ],
   },
 ];
+
