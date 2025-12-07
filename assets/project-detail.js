@@ -44,7 +44,7 @@ function createVisual(slide) {
 function renderProject(project) {
   breadcrumbEl.textContent = project.label;
   titleEl.textContent = project.title;
-  descEl.textContent = project.description;
+  descEl.innerHTML = currentProject.description;
 
   // 🔥 여기서 버튼 자동 생성
   if (notesEl) {
