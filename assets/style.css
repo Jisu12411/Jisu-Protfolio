@@ -932,7 +932,6 @@ section {
   .page,
   .section,
   .section-inner,
-  .about--new,
   .about-bottom-info,
   .basic-info-grid,
   .gallery-card,
@@ -957,138 +956,123 @@ section {
     font-size: 0.85em !important;
   }
 
-  .section__title {
-    font-size: 20px !important;
+
+  /* ===================================================== */
+  /* 1) 메인 첫 화면 — 텍스트 크기 줄여도 중앙 위치 유지     */
+  /* ===================================================== */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* 세로 기준 가운데 */
+    align-items: flex-start;       /* 가로 기준 왼쪽 정렬 */
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-
-  /* ======================================= */
-  /* HERO 텍스트 0.75배 축소 (정렬 유지)      */
-  /* ======================================= */
-
-  .hero__label {
-    font-size: 0.75em !important;
-  }
-
+  .hero__label,
   .hero__desc {
-    font-size: 0.75em !important;
-    line-height: 1.5;
+    transform: translateY(0);      /* 폰트 축소로 인해 위로 들리는 문제 방지 */
+    font-size: 0.75em !important;  /* 너가 요청한 축소 적용 */
   }
 
 
+  /* ===================================================== */
+  /* 2) ABOUT — 프로필만 좌(1) : 우(4) 배치, 나머지는 그대로 */
+  /* ===================================================== */
 
-  /* ======================================= */
-  /* ABOUT — 사진 왼쪽 / 정보 오른쪽 구성     */
-  /* ======================================= */
-
-  .about--new {
+  /* 프로필 박스만 별도 구성 */
+  .about-profile-box {
     display: grid !important;
-    grid-template-columns: 40% 60% !important; /* 레이아웃만 2열로 */
-    align-items: start;
-    gap: 16px;
+    grid-template-columns: 1fr 4fr !important;
+    gap: 12px;
+    width: 100%;
   }
 
-  .about__photo img {
-    width: 100% !important;
-    height: auto !important;
+  .about-profile-box .photo img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
   }
 
+  /* 나머지 아래 학력·경력·스킬은 기존 레이아웃 그대로 유지 */
 
 
-  /* ======================================= */
-  /* SKILLS, EDUCATION, WORK — 기존 유지      */
-  /* ======================================= */
+  /* ======================= */
+  /* PROJECT LIST            */
+  /* ======================= */
 
-  .about-bottom-info h4,
-  .skills-card h4 {
-    font-size: 1.25em !important;
-  }
-
-  .about-bottom-info li {
-    font-size: 0.75em !important;
-    line-height: 1.4;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 6px;
-  }
-
-  .skill-pill span {
-    font-size: 0.5em !important;
+  /* 🔥 원래 잘 나오던 정사각형 섬네일로 완전 복구 */
+  .gallery-thumb {
+    width: 100% !important;
+    aspect-ratio: 1 / 1;
+    background-size: cover !important;       /* cover 복귀 */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 14px;
   }
 
 
+  /* ======================= */
+  /* PROJECT DETAIL HEADER   */
+  /* ======================= */
 
-
-  /* ======================================= */
-  /* PROJECT DETAIL HEADER                   */
-  /* ======================================= */
-
+  /* 🔥 헤더는 요청 수정 외 절대 건들지 않음 — 원래대로 복구 */
   .breadcrumb {
-    font-size: 0.5em !important;
+    font-size: 0.75em !important;
   }
 
   .page-title {
-    font-size: 1.25em !important;
+    font-size: 1.4em !important;
   }
 
   .page-hero-right {
-    font-size: 0.75em !important;
+    font-size: 0.9em !important;
     line-height: 1.45;
   }
 
 
-
-  /* ======================================= */
-  /* SLIDER — 문제 해결 2개 적용              */
-  /* ======================================= */
+  /* ======================= */
+  /* SLIDER (DETAIL)         */
+  /* ======================= */
 
   .slider {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden !important;
-    padding: 5px;
+    padding: 0 !important; /* 아래 여백 제거 */
   }
 
   #slides {
     display: flex;
     transition: transform 0.4s ease;
-    overflow: hidden !important;   /* ✔ 다음 슬라이드 살짝 보이는 문제 완벽 제거 */
+    overflow: hidden !important; /* 다음 이미지 보이는 현상 제거 */
   }
 
-  /* ✔ PC/모바일 이미지 높이 차이 해결 — 빈 여백 제거 */
+  /* 🔥 PC/모바일 이미지 높이 차이로 발생한 여백 완전 제거 */
   #slides img,
   #slides .mock-image {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
     display: block;
+    object-fit: contain !important;
   }
 
-  .slide {
-    padding: 0 !important;
-  }
-
+  .slide,
   .slide-visual {
     padding: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 !important;
   }
 
 
-
-  /* ======================================= */
-  /* 슬라이드 좌우 버튼 — 브라운톤 변경       */
-  /* ======================================= */
+  /* ============================================= */
+  /* 슬라이드 버튼 — 다시 표시 + 버튼 색 수정       */
+  /* ============================================= */
 
   .slider__control {
     position: fixed !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-
     width: 42px !important;
     height: 42px !important;
 
@@ -1096,14 +1080,14 @@ section {
     align-items: center;
     justify-content: center;
 
-    background: rgba(110, 79, 58, 0.35) !important;  /* ✔ 붉은기 없는 갈색 */
+    /* 요청한 갈색 톤 반투명 */
+    background: rgba(110, 79, 58, 0.35) !important;
     color: #fff !important;
 
     border-radius: 50%;
-    border: none !important;
-
-    font-size: 22px !important;
+    font-size: 24px !important;
     z-index: 9999 !important;
+    pointer-events: auto !important;
   }
 
   .slider__control.prev {
@@ -1115,18 +1099,17 @@ section {
   }
 
 
-
-  .slider__control.is-disabled,
-  .slider__control.disabled {
+  /* visibility는 JS가 제어하도록 그대로 둠 */
+  .slider__control.disabled,
+  .slider__control.is-disabled {
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
 
-
-  /* ======================================= */
-  /* DETAIL PAGE BUTTONS — 기존 그대로 유지  */
-  /* ======================================= */
+  /* ======================= */
+  /* DETAIL PAGE BUTTONS     */
+  /* ======================= */
 
   .project-links {
     display: flex;
@@ -1137,16 +1120,15 @@ section {
   }
 
   .project-link-btn {
-    font-size: 12px !important;
     padding: 8px 10px;
+    font-size: 12px !important;
     border-radius: 10px;
   }
 
 
-  /* ======================================= */
-  /* FOOTER DESC                             */
-  /* ======================================= */
-
+  /* ======================= */
+  /* FOOTER DESC 0.75배      */
+  /* ======================= */
   .footer__desc {
     font-size: 0.75em !important;
   }
