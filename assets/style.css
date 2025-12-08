@@ -1115,8 +1115,6 @@ section {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden;
-    padding: 5px;              /* 이미지 박스와 여백 줄이기 */
-    height: auto !important;   /* JS가 넣는 여분 높이(+60px) 제거 */
   }
 
   #slides {
@@ -1140,7 +1138,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;   /* 아주 얇게만 여백 */
   }
 
 .slide {
@@ -1164,7 +1161,7 @@ section {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 20, 16, 0.35);
+    background: rgba(90, 72, 56, 0.35);
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
@@ -1223,4 +1220,5 @@ section {
     font-size: 0.75em !important;
   }
 }
+
 
