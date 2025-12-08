@@ -1091,50 +1091,54 @@ section {
   /* ======================= */
 
   .slider {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden;
-    padding: 5px;
+    width: 100vw !important;          /* 수정: 정확한 슬라이드 폭 */
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    padding: 0 !important;            /* padding 제거 → 다음 슬라이드 보임 제거 */
     height: auto !important;
   }
 
   /* ★ 수정 ①: 이미지 높이를 자동으로 → 빈 여백 제거 */
-  .mock-image,
-  .mock-image.tall,
-  .mock-image.real {
-    min-height: 0 !important;
+  .slide-visual {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: none !important;
     height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide-visual img,
+  .mock-image,
+  .mock-image.real {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     object-fit: contain !important;
   }
 
-  /* ★ 수정 ②: 다음 슬라이드 미리 보임 제거 */
+  /* ★ 수정 ②: 다음 슬라이드 미리 보임 제거 — 100vw 강제 */
   .slides,
   #slides {
-    display: flex;
+    display: flex !important;
     gap: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
     transition: transform 0.4s ease;
   }
 
   .slide {
     padding: 0 !important;
-    flex: 0 0 100% !important;
+    flex: 0 0 100vw !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     margin: 0 !important;
-  }
-
-  .slide-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px;
-  }
-
-  .slide-visual img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
   }
 
   /* ============================================= */
@@ -1151,9 +1155,10 @@ section {
     align-items: center;
     justify-content: center;
 
-    /* ★ 수정 ③: 붉은기 없는 갈색 + 살짝 투명 */
-    background: rgba(151, 107, 78, 0.45) !important;
+    /* ★ 수정 ③: 더 투명하게 변경 (기존 0.45 → 0.18) */
+    background: rgba(151, 107, 78, 0.18) !important;
 
+    backdrop-filter: blur(4px) !important;
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
