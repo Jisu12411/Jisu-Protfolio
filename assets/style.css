@@ -962,7 +962,7 @@ section {
   }
 
   /* ======================================= */
-  /*  메인화면 세로 가운데 / 가로는 왼쪽 정렬  */
+  /* 1. 메인화면 세로 가운데 / 가로는 왼쪽 정렬  */
   /* ======================================= */
   #hero {
     min-height: 100vh;
@@ -974,48 +974,38 @@ section {
     padding-bottom: 0;
   }
 
-    #hero .hero-subtitle {
+  /* 1-1. HERO 텍스트 사이즈만 축소 */
+  #hero .hero__eyebrow,
+  #hero .hero-subtitle {
     font-size: 0.75em !important;
   }
 
+  #hero .hero__title,
   #hero .hero-title {
     font-size: 1.6em !important;
   }
 
+  #hero .hero__desc,
   #hero .hero-desc {
     font-size: 0.8em !important;
     line-height: 1.5;
   }
 
   /* ======================= */
-  /* ABOUT FIX               */
+  /* 2. ABOUT 상단 프로필만 좌우 2열 */
   /* ======================= */
 
-    .about-profile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* 1:1 비율 */
-    gap: 16px;
-    align-items: center;
-  }
-
-  .about-profile .profile-photo {
-    width: 100%;
-  }
-
-  .about-profile .profile-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
   #about.section {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
 
+  /* 상단 프로필 영역 (사진 카드 + 기본 정보 카드)만 2열 */
   .about--new {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* 왼쪽 사진 / 오른쪽 info */
     gap: 20px;
+    align-items: center;
   }
 
   .basic-info-grid {
@@ -1023,6 +1013,7 @@ section {
     gap: 8px;
   }
 
+  /* 아래 학력/경력/스킬 영역은 기존 그대로 세로 배치 */
   .about-bottom-info {
     display: flex;
     flex-direction: column;
@@ -1032,13 +1023,11 @@ section {
   /* ------------------------------ */
   /* Education / Work / Skills 제목 */
   /* ------------------------------ */
-  /* (두번째 스샷 요구사항) 제목 1.4배 */
   .about-bottom-info h4,
   .skills-card h4 {
     font-size: 1.25em !important;
   }
 
-  /* Education / Work 내용 0.65배로 더 줄이기 */
   .about-bottom-info li {
     font-size: 0.75em !important;
     line-height: 1.4;
@@ -1062,11 +1051,9 @@ section {
     height: auto;
   }
 
-  /* 스킬 텍스트 0.75배 정도로 축소 */
   .skill-pill span {
     font-size: 0.5em !important;
   }
-
 
   /* ======================= */
   /* PROJECT LIST            */
@@ -1082,7 +1069,6 @@ section {
     display: block;
   }
 
-  /* 썸네일 박스 정사각형 + 이미지 전체 보이도록 */
   .gallery-thumb {
     width: 100% !important;
     aspect-ratio: 1 / 1;
@@ -1093,7 +1079,6 @@ section {
     border-radius: 14px;
   }
 
-  /* 프로젝트 카드 제목/설명 글씨 크기 */
   .gallery-card h3 {
     font-size: 1.10em !important;
   }
@@ -1102,27 +1087,23 @@ section {
     font-size: 0.75em !important;
   }
 
-
   /* ======================= */
   /* PROJECT DETAIL HEADER   */
   /* ======================= */
 
   .page-hero {
-    padding: 36px 20px 18px 20px;  /* 상단 약간 더, 하단 조금 줄임 */
+    padding: 36px 20px 18px 20px;
     grid-template-columns: 1fr;
   }
 
-  /* [첫번째 이미지] 1. PROJECT · MAIN BANNER 0.75배 */
   .breadcrumb {
     font-size: 0.5em !important;
   }
 
-  /* [첫번째 이미지] 2. 메인 배너 타이틀 1.4배 */
   .page-title {
     font-size: 1.25em !important;
   }
 
-  /* [첫번째 이미지] 3. desc 0.9배 */
   .page-hero-right {
     text-align: left !important;
     font-size: 0.75em !important;
@@ -1130,17 +1111,16 @@ section {
     line-height: 1.5;
   }
 
-
   /* ======================= */
-  /* SLIDER (DETAIL)        */
+  /* 4,5. SLIDER (DETAIL)    */
   /* ======================= */
 
   .slider {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden !important;
-    padding: 5px;              /* 이미지 박스와 여백 줄이기 */
-    height: auto !important;   /* JS가 넣는 여분 높이(+60px) 제거 */
+    padding: 5px;
+    height: auto !important;
   }
 
   #slides {
@@ -1148,7 +1128,6 @@ section {
     transition: transform 0.4s ease;
   }
 
-  
   #slides .slide {
     overflow: hidden !important;
   }
@@ -1159,17 +1138,16 @@ section {
   .mock-image.real {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;  /* 찌그러짐 방지 */
+    object-fit: contain !important;
     flex-shrink: 0;
     display: block;
   }
 
-  /* 이미지가 박스 안에서 정확히 가운데 오도록 */
   .slide-visual {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;   /* 아주 얇게만 여백 */
+    padding: 2px;
   }
 
   .slide {
@@ -1177,26 +1155,24 @@ section {
   }
 
   /* ============================================= */
-  /* 슬라이드 버튼 – 화면 중앙 좌/우, JS visibility 존중 */
+  /* 3. 슬라이드 버튼 – 브라운 반투명               */
   /* ============================================= */
 
   .slider__control {
-    position: fixed !important; /* 화면 기준 배치 */
-    top: 50% !important;        /* 화면 세로 중앙 */
+    position: fixed !important;
+    top: 50% !important;
     transform: translateY(-50%) !important;
     width: 40px !important;
     height: 40px !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background: rgba(90, 70, 50, 0.45);
+    background: rgba(90, 70, 50, 0.45) !important; /* 갈색 반투명 */
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
     z-index: 9999 !important;
     pointer-events: auto !important;
-    /* ⚠ visibility는 JS에서 'hidden/visible'로 제어하므로
-       여기서는 강제로 지정하지 않는다. */
   }
 
   .slider__control.prev {
@@ -1214,7 +1190,6 @@ section {
     opacity: 0 !important;
     pointer-events: none !important;
   }
-
 
   /* ======================= */
   /* DETAIL PAGE BUTTONS     */
@@ -1240,7 +1215,6 @@ section {
     text-align: center;
   }
 
-
   /* ======================= */
   /* FOOTER DESC 0.75배      */
   /* ======================= */
@@ -1248,4 +1222,3 @@ section {
     font-size: 0.75em !important;
   }
 }
-
