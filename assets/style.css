@@ -918,9 +918,11 @@ section {
 @media (max-width: 640px) {
 
   /* ======================= */
-  /*        GLOBAL TEXT      */
+  /*  GLOBAL RESET / FIXES   */
   /* ======================= */
-  body {
+  html, body {
+    width: 100%;
+    overflow-x: hidden; /* 우측 흰 여백 제거 */
     font-size: 14px;
   }
 
@@ -929,8 +931,10 @@ section {
   }
 
   .section__title {
-    font-size: 22px !important;
+    font-size: 20px !important; /* 요청: 제목 절반 크기 */
+    letter-spacing: 1px;
   }
+
 
 
   /* ======================= */
@@ -945,11 +949,12 @@ section {
   }
 
 
+
   /* ======================= */
   /*        HERO AREA        */
   /* ======================= */
   #hero {
-    height: 100vh;            /* 요구 1: 화면 꽉 채움 */
+    height: 100vh;       /* 요구 1: 전체 화면 채우기 */
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
@@ -971,14 +976,10 @@ section {
   }
 
 
+
   /* ======================= */
   /*         ABOUT           */
   /* ======================= */
-  .section__title {          /* 요구 3: 제목 크기 절반 */
-    font-size: 20px !important;
-    letter-spacing: 1px;
-  }
-
   .about--new {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -989,9 +990,7 @@ section {
   }
 
 
-  /* =========================== */
-  /*        BASIC INFO BOX       */
-  /* =========================== */
+  /* 기본 정보 단일 열 */
   .basic-info-grid {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -1003,12 +1002,24 @@ section {
   }
 
 
+  /* =========================== */
+  /*     EDUCATION / EXPERIENCE  */
+  /* =========================== */
+
+  /* 요청 2: 세로 정렬로 변경 */
+  .about-bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+
+
   /* ======================= */
-  /*      SKILLS AREA        */
+  /*        SKILLS GRID      */
   /* ======================= */
-  /* 요구 2: 한 줄에 4개 배치 */
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* 요구 2 충족 */
     gap: 10px;
   }
 
@@ -1021,21 +1032,22 @@ section {
   }
 
 
-  /* ======================= */
-  /*     PROJECT LIST PAGE   */
-  /* ======================= */
 
-  /* 요구 4: 썸네일 정사각형 유지 */
-  .gallery-thumb {
-    width: 100%;
-    aspect-ratio: 1 / 1;         /* perfect square */
-    background-size: cover;
-    background-position: center;
-    border-radius: 14px;
-  }
+  /* ======================= */
+  /*     PROJECTS (LIST)     */
+  /* ======================= */
 
   .gallery-card {
     padding: 12px;
+  }
+
+  /* 요구 4: 썸네일 정사각형 + 전체 이미지 보이기 */
+  .gallery-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 14px;
   }
 
   .gallery-card h3 {
@@ -1047,20 +1059,20 @@ section {
   }
 
 
-  /* ======================= */
-  /*  PROJECT DETAIL HEADER  */
-  /* ======================= */
 
-  /* 요구 6: 타이틀 전체 축소 */
+  /* ============================== */
+  /*   PROJECT DETAIL – HEADER     */
+  /* ============================== */
+
   .breadcrumb {
     font-size: 12px !important;
   }
 
   .page-title {
-    font-size: 24px !important;
+    font-size: 24px !important; /* 요구 6 */
   }
 
-  /* 요구 7: DESC 왼쪽 정렬 + 크기 축소 */
+  /* 요구 7: DESC 왼쪽 정렬 */
   .page-hero-right {
     text-align: left !important;
     font-size: 14px !important;
@@ -1074,14 +1086,15 @@ section {
   }
 
 
-  /* ======================= */
-  /*  PROJECT DETAIL SLIDER  */
-  /* ======================= */
 
-  /* 요구 10 + 11: 버튼 보이게 & 이미지 크게 */
+  /* ============================== */
+  /*     PROJECT DETAIL – SLIDER    */
+  /* ============================== */
+
   .slider {
     width: 100% !important;
     margin: 0 auto;
+    position: relative;
   }
 
   #slides img,
@@ -1092,17 +1105,23 @@ section {
     border-radius: 10px;
   }
 
-  /* 슬라이드 버튼 표시 */
+  /* 요구 10: 버튼 표시 */
   .slider__control {
     opacity: 1 !important;
-    display: block !important;
+    display: flex !important;
     visibility: visible !important;
 
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: rgba(0,0,0,0.45);
+    color: #fff !important;
+    font-size: 28px !important;
+
     padding: 6px 10px;
     border-radius: 8px;
+    z-index: 20 !important;
   }
 
   .slider__control.prev {
@@ -1114,11 +1133,11 @@ section {
   }
 
 
-  /* ======================= */
-  /*    THREE BOTTOM BUTTONS */
-  /* ======================= */
 
-  /* 요구 9: 세로 → 가로 & 글씨 작게 */
+  /* ============================== */
+  /*     DETAIL PAGE – 3 BUTTONS    */
+  /* ============================== */
+
   .bottom-links {
     display: flex;
     justify-content: center;
@@ -1126,13 +1145,18 @@ section {
     margin: 30px 0;
   }
 
+  /* 요구 9: 세로 → 가로 글씨 */
   .bottom-links a {
-    writing-mode: horizontal-tb !important;   /* 가로로 */
+    writing-mode: horizontal-tb !important;
     font-size: 14px !important;
     padding: 10px 16px;
+    width: auto;
+    min-width: 100px;
+    text-align: center;
     border-radius: 10px;
   }
 }
+
 
 
 
