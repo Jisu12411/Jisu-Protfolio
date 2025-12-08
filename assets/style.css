@@ -944,7 +944,8 @@ section {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: hidden;   /* ✔ ABOUT 우측 잘림 방지 */
+    overflow-x: hidden;       /* 🔥 ABOUT 우측 잘림 완전 방지 */
+    box-sizing: border-box;
   }
 
   img,
@@ -1025,6 +1026,7 @@ section {
     font-size: 14px;
   }
 
+  /* 학력 / 경력 세로 정렬 */
   .about-bottom-info {
     display: flex;
     flex-direction: column;
@@ -1057,12 +1059,13 @@ section {
     padding: 12px;
   }
 
-  /* ✔ 정사각형 유지 + 이미지 전체 보임 */
+  /* 🔥 썸네일: 정사각형 + 이미지 전체 보이기 */
   .gallery-thumb {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-size: cover !important;
+    background-size: contain !important;   /* ← 수정됨 */
     background-position: center !important;
+    background-repeat: no-repeat !important;
     border-radius: 14px;
     overflow: hidden;
   }
@@ -1088,6 +1091,7 @@ section {
     font-size: 24px !important;
   }
 
+  /* DESC 글씨 0.7배 정도로 축소 + 왼쪽 정렬 */
   .page-hero-right {
     text-align: left !important;
     font-size: 13px !important;
@@ -1118,7 +1122,7 @@ section {
     transition: transform 0.4s ease;
   }
 
-  /* ✔ 슬라이드 이미지 항상 100% 너비 유지 */
+  /* 🔥 슬라이드 이미지 100% 유지 */
   #slides img,
   #slides .mock-image,
   .mock-image,
@@ -1129,34 +1133,35 @@ section {
     flex-shrink: 0;
   }
 
-  /* ✔ 중앙 고정 + 항상 보이게 */
+  /* 🔥 슬라이드 버튼 중앙 고정 + 항상 표시 */
   .slider__control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 40px !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
-    visibility: visible !important;
 
     background: rgba(0,0,0,0.45);
     color: #fff !important;
     font-size: 24px !important;
     border-radius: 999px;
-    z-index: 30;
-    pointer-events: auto;
+    z-index: 30 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 
   .slider__control.prev {
-    left: 8px;
+    left: 8px !important;
   }
 
   .slider__control.next {
-    right: 8px;
+    right: 8px !important;
   }
 
+  /* 비활성화 상태 */
   .slider__control.is-disabled,
   .slider__control.disabled,
   .slider__control.slider__control--disabled {
@@ -1170,24 +1175,27 @@ section {
   /* ============================== */
 
   .bottom-links {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: center;
+    flex-wrap: nowrap !important;   /* 🔥 세로 줄바꿈 절대 안됨 */
     gap: 10px;
     margin: 30px 0;
   }
 
-  /* ✔ 세로 → 가로 강제 */
+  /* 텍스트 세로 → 가로 강제 */
   .bottom-links a,
   .bottom-links a span,
   .bottom-links a strong {
     writing-mode: horizontal-tb !important;
     text-orientation: mixed !important;
+    white-space: nowrap !important;   /* 🔥 글자 줄바꿈 방지 */
   }
 
   .bottom-links a {
     font-size: 13px !important;
     padding: 10px 16px;
-    min-width: 110px;     /* ✔ 최소 너비 → 줄바꿈 방지 */
+    min-width: 110px;        /* ← 가로 유지 */
     text-align: center;
     border-radius: 10px;
     line-height: 1.3;
