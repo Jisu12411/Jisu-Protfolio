@@ -915,30 +915,62 @@ section {
 /* ======================================= */
 /*               MOBILE (≤640px)           */
 /* ======================================= */
+
 @media (max-width: 640px) {
 
-  /* 기본 초기화 */
-  html, body {
+  /* ======================= */
+  /*  GLOBAL RESET / FIXES   */
+  /* ======================= */
+  html,
+  body {
     width: 100%;
-    overflow-x: hidden !important;
+    max-width: 100%;
+    overflow-x: hidden;          /* 1. 우측 잘림/여백 방지 */
     font-size: 14px;
   }
 
+  /* 주요 컨테이너들도 강제로 100% 안으로 */
   .section,
+  .page,
+  .about,
   .about--new,
-  .about__right,
-  .about__left {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-right: 0 !important;
-    margin-right: 0 !important;
+  .gallery-grid,
+  .footer,
+  .page-hero,
+  .slider {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1, h2, h3, h4 {
+    font-size: 0.85em !important;
+  }
+
+  .section__title {
+    font-size: 20px !important;  /* 제목 절반 크기 */
+    letter-spacing: 1px;
+  }
+
+  /* 3개 버튼 포함 모든 링크 글자 방향 가로로 고정 */
+  a {
+    writing-mode: horizontal-tb !important;   /* 3. 세로 글씨 -> 가로 글씨 */
+  }
+
+
+
   /* ======================= */
-  /*       NAVIGATION        */
+  /*        NAVIGATION       */
   /* ======================= */
   .nav {
-    padding: 10px 16px !important;
+    padding: 10px 16px;
   }
 
   .nav__menu a {
@@ -946,12 +978,16 @@ section {
   }
 
 
+
   /* ======================= */
-  /*         HERO            */
+  /*        HERO AREA        */
   /* ======================= */
   #hero {
-    height: 100vh;
+    height: 100vh;       /* 전체 화면 채우기 */
     padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero__title {
@@ -963,44 +999,57 @@ section {
     line-height: 1.45;
   }
 
+  .scroll-indicator {
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+
 
   /* ======================= */
   /*         ABOUT           */
   /* ======================= */
   .about--new {
-    grid-template-columns: 1fr !important;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .about__photo img {
     max-width: 220px;
-    margin: 0 auto;
-    display: block;
   }
 
+  /* 기본 정보 단일 열 */
   .basic-info-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
   .info-box {
-    padding: 12px !important;
+    padding: 12px;
+    font-size: 14px;
   }
 
-  /* 학력 경력 세로 정렬 */
+  /* 학력/경력 세로 배치 */
   .about-bottom-info {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
+
 
 
   /* ======================= */
-  /*         SKILLS          */
+  /*        SKILLS GRID      */
   /* ======================= */
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 10px !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important; /* 한 줄에 4개 */
+    gap: 10px;
+  }
+
+  .skill-pill {
+    padding: 8px;
   }
 
   .skill-pill span {
@@ -1008,52 +1057,69 @@ section {
   }
 
 
-  /* ======================= */
-  /*      PROJECT LIST       */
-  /* ======================= */
 
-  .gallery-thumb {
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    background-size: cover !important;
-    background-position: center !important;
-    height: auto !important;
-    border-radius: 14px !important;
-  }
+  /* ======================= */
+  /*     PROJECTS (LIST)     */
+  /* ======================= */
 
   .gallery-card {
-    padding: 12px !important;
+    padding: 12px;
+  }
+
+  /* 썸네일 정사각형 + 전체 이미지 보이기 */
+  .gallery-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 14px;
+  }
+
+  .gallery-card h3 {
+    font-size: 16px;
+  }
+
+  .gallery-card p {
+    font-size: 13px;
   }
 
 
-  /* ========================== */
-  /*     PROJECT DETAIL TOP     */
-  /* ========================== */
 
-  .page-hero {
-    padding: 30px 20px !important;
-    grid-template-columns: 1fr !important;
+  /* ============================== */
+  /*   PROJECT DETAIL – HEADER     */
+  /* ============================== */
+
+  .breadcrumb {
+    font-size: 12px !important;
   }
 
   .page-title {
-    font-size: 24px !important;
+    font-size: 24px !important; /* PROJECT · MAIN BANNER 크기 축소 */
   }
 
+  /* DESC 왼쪽 정렬 + 글자 0.7배 정도로 더 작게 */
   .page-hero-right {
     text-align: left !important;
-    font-size: 14px !important;
-    padding-right: 10px !important;
+    font-size: 10px !important;   /* 4. 기존보다 더 작게 (약 0.7배) */
+    line-height: 1.5;
+    padding-right: 10px;
+  }
+
+  .page-hero {
+    padding: 30px 20px;
+    grid-template-columns: 1fr;
   }
 
 
-  /* ========================== */
-  /*     PROJECT SLIDER         */
-  /* ========================== */
+
+  /* ============================== */
+  /*     PROJECT DETAIL – SLIDER    */
+  /* ============================== */
 
   .slider {
     width: 100% !important;
-    position: relative !important;
-    overflow: visible !important;
+    margin: 0 auto;
+    position: relative;
   }
 
   #slides img,
@@ -1061,68 +1127,61 @@ section {
   .mock-image.real {
     width: 100% !important;
     height: auto !important;
-    border-radius: 10px !important;
+    border-radius: 10px;
   }
 
-  /* 슬라이드 버튼 완전 표시 */
+  /* 슬라이드 버튼: JS 비활성화 로직 안 건드리고
+     위치/디자인만 모바일에 맞게 수정 */
   .slider__control {
-    opacity: 1 !important;
-    display: flex !important;
-    visibility: visible !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
 
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-
-    background: rgba(0,0,0,0.45) !important;
+    background: rgba(0,0,0,0.45);
     color: #fff !important;
     font-size: 28px !important;
 
-    padding: 6px 10px !important;
-    border-radius: 8px !important;
-    z-index: 9999 !important;
+    padding: 6px 10px;
+    border-radius: 8px;
+    /* 클릭 가능하게 보장 */
+    pointer-events: auto;
   }
 
-  .slider__control.prev { left: 8px !important; }
-  .slider__control.next { right: 8px !important; }
-
-
-  /* ========================== */
-  /*     DETAIL 3 BUTTONS       */
-  /* ========================== */
-
-  .bottom-links {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    margin: 30px 0 !important;
+  .slider__control.prev {
+    left: 6px;
   }
 
-  .bottom-links a {
+  .slider__control.next {
+    right: 6px;
+  }
+
+
+
+  /* ============================== */
+  /*     DETAIL PAGE – 3 BUTTONS    */
+  /* ============================== */
+
+  /* 3개 버튼 래퍼를 가로 정렬 */
+  .bottom-links,
+  .project-type-buttons,
+  .project-type-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+  }
+
+  /* 세로 글씨를 가로로, 글자/버튼 크기 축소 */
+  .bottom-links a,
+  .project-type-buttons a,
+  .project-type-links a {
     writing-mode: horizontal-tb !important;
-    font-size: 14px !important;
-
-    padding: 10px 16px !important;
-    min-width: 90px !important;
-    height: auto !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    border-radius: 10px !important;
-    white-space: nowrap !important;
+    font-size: 13px !important;
+    padding: 10px 16px;
+    width: auto;
+    min-width: 100px;
+    text-align: center;
+    border-radius: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
