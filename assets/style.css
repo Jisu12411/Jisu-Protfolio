@@ -924,57 +924,58 @@ section {
   }
 
   .nav__menu {
-    gap: 14px;
-    font-size: 0.9rem;
+    gap: 12px;
+    font-size: 0.85rem;
   }
 
   /* ===== HERO ===== */
   .hero {
     min-height: 70vh;
-    padding: 100px 20px 60px;
+    padding: 90px 20px 50px;
     align-items: flex-start;
   }
 
   .hero__content {
     max-width: 100%;
-    gap: 12px;
+    gap: 10px;
   }
 
   .hero__title {
-    font-size: 38px;
-    line-height: 1.15;
+    font-size: 32px;
+    line-height: 1.2;
   }
 
   .hero__desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.55;
   }
 
   .scroll-indicator {
-    bottom: 20px;
-    font-size: 0.8rem;
+    bottom: 18px;
+    font-size: 0.75rem;
   }
 
 
   /* ===== ABOUT ===== */
   .about--new {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
+    padding: 0 10px;
   }
 
   .about__left {
-    padding: 16px;
+    padding: 12px;
   }
 
   .about__photo img {
-    max-width: 240px;
+    max-width: 220px;
     aspect-ratio: 1 / 1.2;
     border-radius: 16px;
   }
 
   .basic-info-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
   }
 
   .about-bottom-info {
@@ -985,66 +986,115 @@ section {
   /* ===== PROJECT LIST ===== */
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .gallery-card {
     padding: 14px;
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
+  /* 정사각형 썸네일 */
   .gallery-thumb {
-    height: 150px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
   }
 
   .gallery-card h3 {
-    margin-top: 14px;
-    font-size: 1.1rem;
+    margin-top: 12px;
+    font-size: 1rem;
   }
 
 
   /* ===== PROJECT DETAIL PAGE ===== */
+
+  /* 헤더 + 타이틀 */
   .page-hero {
     grid-template-columns: 1fr;
     text-align: left;
-    padding: 40px 20px;
+    padding: 32px 16px;
   }
 
   .page-hero-right {
-    text-align: left;
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
+  /* 슬라이더 */
   .slider {
     width: 100%;
     border-radius: 14px;
+    position: relative;
   }
 
   .slide-visual img,
   .mock-image.real,
   .mock-image {
+    width: 100%;
     max-width: 100%;
     height: auto !important;
     border-radius: 12px;
   }
 
+  /* 슬라이드 버튼 */
+  #prev-btn, #next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+    z-index: 50;
+  }
+
+  #prev-btn { left: 8px; }
+  #next-btn { right: 8px; }
+
+  /* 상세페이지의 롱 이미지 올라갈 때 여백 */
+  .detail-image-wrapper img {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  /* 프로젝트 메타 (정보 박스) */
   .project-meta {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* 프로젝트 하단 네비게이션 (가로 정렬로 변경) */
+  .project-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .project-nav button {
+    writing-mode: horizontal-tb; /* 가로 정렬 */
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 12px;
   }
 
 
   /* ===== FOOTER ===== */
   .footer {
     grid-template-columns: 1fr;
-    padding: 40px 20px;
+    padding: 32px 16px;
     text-align: left;
-    gap: 30px;
+    gap: 24px;
   }
 
   .footer__title {
-    margin-top: 10px;
+    margin-top: 8px;
   }
 }
+
+
 
 
 
