@@ -911,206 +911,230 @@ section {
     height: auto;
     object-fit: contain;
 }
-/* ============================= */
-/*      ★ MOBILE REDESIGN ★      */
-/* ============================= */
+/* ======================================= */
+/*               MOBILE (≤640px)           */
+/* ======================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
 
-  /* ===== NAV ===== */
+  /* ======================= */
+  /*        GLOBAL TEXT      */
+  /* ======================= */
+  body {
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4 {
+    font-size: 0.85em !important;
+  }
+
+  .section__title {
+    font-size: 22px !important;
+  }
+
+
+  /* ======================= */
+  /*        NAVIGATION       */
+  /* ======================= */
   .nav {
-    padding: 10px 14px;
+    padding: 10px 16px;
   }
 
-  .nav__brand {
-    font-size: 1rem;
+  .nav__menu a {
+    font-size: 14px;
   }
 
-  .nav__menu {
-    gap: 10px;
-    font-size: 0.85rem;
-  }
 
-  /* ===== HERO ===== */
-  .hero {
-    padding: 80px 20px 50px;
-    min-height: 60vh;
+  /* ======================= */
+  /*        HERO AREA        */
+  /* ======================= */
+  #hero {
+    height: 100vh;            /* 요구 1: 화면 꽉 채움 */
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero__title {
-    font-size: 32px;
-    line-height: 1.2;
+    font-size: 42px !important;
   }
 
   .hero__desc {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 14px !important;
+    line-height: 1.45;
   }
 
-  /* ===== ABOUT ===== */
+  .scroll-indicator {
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+
+  /* ======================= */
+  /*         ABOUT           */
+  /* ======================= */
+  .section__title {          /* 요구 3: 제목 크기 절반 */
+    font-size: 20px !important;
+    letter-spacing: 1px;
+  }
+
   .about--new {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .about__photo img {
-    max-width: 200px;
-    border-radius: 14px;
+    max-width: 220px;
   }
 
+
+  /* =========================== */
+  /*        BASIC INFO BOX       */
+  /* =========================== */
   .basic-info-grid {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 8px;
   }
 
-  .about-bottom-info {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .info-box {
+    padding: 12px;
+    font-size: 14px;
   }
 
-  /* ===== SKILLS ===== */
+
+  /* ======================= */
+  /*      SKILLS AREA        */
+  /* ======================= */
+  /* 요구 2: 한 줄에 4개 배치 */
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px;
+  }
+
+  .skill-pill {
+    padding: 8px;
   }
 
   .skill-pill span {
-    font-size: 0.75rem;
+    font-size: 12px;
   }
 
-  /* ===== PROJECT LIST (INDEX) ===== */
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+
+  /* ======================= */
+  /*     PROJECT LIST PAGE   */
+  /* ======================= */
+
+  /* 요구 4: 썸네일 정사각형 유지 */
+  .gallery-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;         /* perfect square */
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
   }
 
   .gallery-card {
     padding: 12px;
-    border-radius: 14px;
-  }
-
-  /* 썸네일 정사각형 고정 */
-  .gallery-thumb {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
   }
 
   .gallery-card h3 {
-    margin-top: 12px;
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .gallery-card p {
-    font-size: 0.85rem;
+    font-size: 13px;
   }
 
-  /* ===== DETAIL PAGE: PAGE HERO ===== */
-  .page-hero {
-    grid-template-columns: 1fr;
-    padding: 30px 20px;
-    text-align: left;
+
+  /* ======================= */
+  /*  PROJECT DETAIL HEADER  */
+  /* ======================= */
+
+  /* 요구 6: 타이틀 전체 축소 */
+  .breadcrumb {
+    font-size: 12px !important;
   }
 
   .page-title {
-    font-size: 1.4rem;
+    font-size: 24px !important;
   }
 
-  .page-desc {
-    font-size: 0.9rem;
-    line-height: 1.55;
+  /* 요구 7: DESC 왼쪽 정렬 + 크기 축소 */
+  .page-hero-right {
+    text-align: left !important;
+    font-size: 14px !important;
+    line-height: 1.5;
+    padding-right: 10px;
   }
 
-  /* ===== DETAIL PAGE: SLIDER ===== */
+  .page-hero {
+    padding: 30px 20px;
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ======================= */
+  /*  PROJECT DETAIL SLIDER  */
+  /* ======================= */
+
+  /* 요구 10 + 11: 버튼 보이게 & 이미지 크게 */
   .slider {
-    width: 100%;
+    width: 100% !important;
     margin: 0 auto;
-    border-radius: 12px;
-    position: relative;
   }
 
-  .slides img,
-  .mock-image.real,
-  .mock-image {
-    width: 100%;
+  #slides img,
+  .mock-image,
+  .mock-image.real {
+    width: 100% !important;
     height: auto !important;
     border-radius: 10px;
   }
 
-  /* 슬라이드 버튼 — 작게 + 중앙 정렬 */
+  /* 슬라이드 버튼 표시 */
   .slider__control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.85);
-    border: none;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 28px;
     padding: 6px 10px;
-    font-size: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    z-index: 20;
+    border-radius: 8px;
   }
 
-  .slider__control.prev { left: 8px; }
-  .slider__control.next { right: 8px; }
-
-  .slider__control:hover {
-    background: #fff;
+  .slider__control.prev {
+    left: 6px;
   }
 
-  /* ===== DETAIL PAGE: META TEXT ===== */
-  .project-meta {
-    padding: 20px;
-    font-size: 0.9rem;
-    grid-template-columns: 1fr;
+  .slider__control.next {
+    right: 6px;
   }
 
-  /* ===== DETAIL PAGE: BOTTOM PROJECT BUTTONS ===== */
-  .other-projects {
-    margin-top: 30px;
+
+  /* ======================= */
+  /*    THREE BOTTOM BUTTONS */
+  /* ======================= */
+
+  /* 요구 9: 세로 → 가로 & 글씨 작게 */
+  .bottom-links {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
+    margin: 30px 0;
   }
 
-  .other-projects a {
-    padding: 12px 18px;
-    background: #fdfbf8;
+  .bottom-links a {
+    writing-mode: horizontal-tb !important;   /* 가로로 */
+    font-size: 14px !important;
+    padding: 10px 16px;
     border-radius: 10px;
-    font-size: 0.9rem;
-    text-align: center;
-    display: inline-block;
-    white-space: nowrap;
-  }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    grid-template-columns: 1fr;
-    padding: 35px 20px;
-    gap: 24px;
-    text-align: left;
-  }
-
-  .footer__brand {
-    font-size: 1.2rem;
-  }
-
-  .footer__desc {
-    font-size: 0.85rem;
-  }
-
-  .footer__title {
-    font-size: 1rem;
-    margin-bottom: 8px;
-  }
-
-  .footer__list {
-    font-size: 0.85rem;
   }
 }
+
+
 
 
 
