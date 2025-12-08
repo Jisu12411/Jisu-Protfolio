@@ -925,11 +925,10 @@ section {
   body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;          /* 우측 잘림/스크롤 방지 */
+    overflow-x: hidden;
     font-size: 14px;
   }
 
-  /* 어떤 박스도 640px 이상으로 넓어지지 않게 */
   .page,
   .section,
   .section-inner,
@@ -938,13 +937,10 @@ section {
   .basic-info-grid,
   .gallery-card,
   .slider,
-  .bottom-links,
   .skills-grid {
     width: 100%;
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: hidden;       /* 🔥 ABOUT 우측 잘림 완전 방지 */
+    margin: 0 auto;
     box-sizing: border-box;
   }
 
@@ -952,7 +948,6 @@ section {
   video {
     max-width: 100%;
     height: auto;
-    display: block;
   }
 
   h1, h2, h3, h4 {
@@ -961,72 +956,28 @@ section {
 
   .section__title {
     font-size: 20px !important;
-    letter-spacing: 1px;
   }
 
 
   /* ======================= */
-  /*        NAVIGATION       */
+  /*         ABOUT FIX       */
   /* ======================= */
-  .nav {
-    padding: 10px 16px;
+
+  #about.section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
-  .nav__menu a {
-    font-size: 14px;
-  }
-
-
-  /* ======================= */
-  /*        HERO AREA        */
-  /* ======================= */
-  #hero {
-    height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .hero__title {
-    font-size: 42px !important;
-  }
-
-  .hero__desc {
-    font-size: 14px !important;
-    line-height: 1.45;
-  }
-
-  .scroll-indicator {
-    bottom: 10px;
-    font-size: 12px;
-  }
-
-
-  /* ======================= */
-  /*         ABOUT           */
-  /* ======================= */
   .about--new {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .about__photo img {
-    max-width: 220px;
-    margin: 0 auto;
-  }
-
   .basic-info-grid {
-    grid-template-columns: 1fr;   /* 단일 열 */
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .info-box {
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  /* 학력 / 경력 세로 정렬 */
   .about-bottom-info {
     display: flex;
     flex-direction: column;
@@ -1035,85 +986,54 @@ section {
 
 
   /* ======================= */
-  /*        SKILLS GRID      */
+  /*       PROJECT LIST      */
   /* ======================= */
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 10px;
+
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
-
-  .skill-pill {
-    padding: 8px;
-  }
-
-  .skill-pill span {
-    font-size: 12px;
-  }
-
-
-  /* ======================= */
-  /*     PROJECTS (LIST)     */
-  /* ======================= */
 
   .gallery-card {
-    padding: 12px;
+    padding: 16px;
+    display: block;
   }
 
-  /* 🔥 썸네일: 정사각형 + 이미지 전체 보이기 */
   .gallery-thumb {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-size: contain !important;   /* ← 수정됨 */
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     border-radius: 14px;
-    overflow: hidden;
-  }
-
-  .gallery-card h3 {
-    font-size: 16px;
-  }
-
-  .gallery-card p {
-    font-size: 13px;
   }
 
 
-  /* ============================== */
-  /*   PROJECT DETAIL – HEADER     */
-  /* ============================== */
-
-  .breadcrumb {
-    font-size: 12px !important;
-  }
-
-  .page-title {
-    font-size: 24px !important;
-  }
-
-  /* DESC 글씨 0.7배 정도로 축소 + 왼쪽 정렬 */
-  .page-hero-right {
-    text-align: left !important;
-    font-size: 13px !important;
-    line-height: 1.5;
-    padding-right: 10px;
-  }
+  /* ======================= */
+  /*   PROJECT DETAIL HEADER */
+  /* ======================= */
 
   .page-hero {
     padding: 30px 20px;
     grid-template-columns: 1fr;
   }
 
+  .page-hero-right {
+    text-align: left !important;
+    font-size: 13px !important;
+    padding-right: 10px;
+  }
 
-  /* ============================== */
-  /*     PROJECT DETAIL – SLIDER    */
-  /* ============================== */
 
+  /* ======================= */
+  /*     SLIDER (DETAIL)     */
+  /* ======================= */
+
+  /* JS로 width 변경돼도 항상 100% 유지 */
   .slider {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
     overflow: hidden;
   }
 
@@ -1122,82 +1042,84 @@ section {
     transition: transform 0.4s ease;
   }
 
-  /* 🔥 슬라이드 이미지 100% 유지 */
   #slides img,
   #slides .mock-image,
   .mock-image,
   .mock-image.real {
     width: 100% !important;
     height: auto !important;
-    border-radius: 10px;
     flex-shrink: 0;
   }
 
-  /* 🔥 슬라이드 버튼 중앙 고정 + 항상 표시 */
+
+  /* ============================================= */
+  /*      🔥 버튼을 화면 기준 중앙 좌/우 고정       */
+  /* ============================================= */
+
   .slider__control {
-    position: absolute !important;
-    top: 50% !important;
+    position: fixed !important;          /* 화면 기준 배치 */
+    top: 50% !important;                 /* 화면 세로 중앙 */
     transform: translateY(-50%) !important;
+
     width: 40px !important;
     height: 40px !important;
+
     display: flex !important;
     align-items: center;
     justify-content: center;
 
     background: rgba(0,0,0,0.45);
     color: #fff !important;
+    border-radius: 50%;
     font-size: 24px !important;
-    border-radius: 999px;
-    z-index: 30 !important;
-    visibility: visible !important;
+    z-index: 9999 !important;
+
     pointer-events: auto !important;
+    visibility: visible !important;
   }
 
   .slider__control.prev {
-    left: 8px !important;
+    left: 8px !important;        /* 화면 왼쪽 */
+    right: auto !important;
   }
 
   .slider__control.next {
-    right: 8px !important;
+    right: 8px !important;       /* 화면 오른쪽 */
+    left: auto !important;
   }
 
-  /* 비활성화 상태 */
+  /* JS가 숨김 처리하는 visibility는 그대로 반영 */
   .slider__control.is-disabled,
-  .slider__control.disabled,
-  .slider__control.slider__control--disabled {
-    opacity: 0;
-    pointer-events: none;
+  .slider__control.disabled {
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
 
-  /* ============================== */
-  /*     DETAIL PAGE – 3 BUTTONS    */
-  /* ============================== */
+  /* ======================= */
+  /*     DETAIL PAGE BUTTONS */
+  /* ======================= */
 
-  .bottom-links {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center;
-    flex-wrap: nowrap !important;   /* 🔥 세로 줄바꿈 절대 안됨 */
+  .project-links {
+    display: flex;
     gap: 10px;
+    justify-content: center;
     margin: 30px 0;
+    flex-wrap: nowrap;
   }
 
-  /* 텍스트 세로 → 가로 강제 */
-  .bottom-links a,
-  .bottom-links a span,
-  .bottom-links a strong {
-    writing-mode: horizontal-tb !important;
-    text-orientation: mixed !important;
-    white-space: nowrap !important;   /* 🔥 글자 줄바꿈 방지 */
-  }
+  .project-link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .bottom-links a {
-    font-size: 13px !important;
-    padding: 10px 16px;
-    min-width: 110px;        /* ← 가로 유지 */
-    text-align: center;
+    padding: 8px 10px;
+    min-width: 110px;
+    max-width: 33%;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+
     border-radius: 10px;
-    line-height: 1.3;
+    text-align: center;
   }
 }
