@@ -974,6 +974,23 @@ section {
     padding-bottom: 0;
   }
 
+  /* 메인 첫 화면 텍스트 크기 조정
+     - PORTFOLIO(메인 타이틀 h1)는 그대로
+     - 그 외 텍스트만 0.75배로 축소 */
+  #hero p,
+  #hero .hero__eyebrow,
+  #hero .hero-kicker,
+  #hero .hero__kicker,
+  #hero .hero-subtitle,
+  #hero .hero__subtitle,
+  #hero .hero__desc,
+  #hero .hero-desc,
+  #hero .hero__body,
+  #hero .hero-scroll,
+  #hero .hero__scroll-label {
+    font-size: 0.75em !important;
+  }
+
   /* ======================= */
   /* ABOUT FIX               */
   /* ======================= */
@@ -1112,9 +1129,18 @@ section {
     height: auto !important;   /* JS가 넣는 여분 높이(+60px) 제거 */
   }
 
+  /* 현재 슬라이드 기준으로 높이가 맞도록
+     슬라이드 컨테이너/비주얼의 높이도 강제로 auto */
+  #slides,
+  .slide-visual,
+  .slide-visual > * {
+    height: auto !important;
+  }
+
   #slides {
     display: flex;
     transition: transform 0.4s ease;
+    gap: 0 !important;           /* 다음 슬라이드 미리 보이는 것 방지 */
   }
 
   #slides img,
@@ -1137,6 +1163,9 @@ section {
 
   .slide {
     padding: 0;
+    flex: 0 0 100% !important;   /* 항상 한 화면에 한 슬라이드만 */
+    margin: 0 !important;
+    box-sizing: border-box;
   }
 
   /* ============================================= */
@@ -1152,7 +1181,8 @@ section {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.45);
+    /* 살짝 투명한 갈색 계열로 변경 */
+    background: rgba(166, 106, 67, 0.88);
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
