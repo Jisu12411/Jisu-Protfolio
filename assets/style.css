@@ -974,6 +974,13 @@ section {
     padding-bottom: 0;
   }
 
+  #hero .hero__subtitle,
+  #hero .hero__desc,
+  #hero .hero__meta,     /* 있으면 추가 */
+  #hero .hero__eyebrow { /* 상단 작은 텍스트 있으면 추가 */
+    font-size: 0.75em;   /* 기존 대비 0.75배 */
+  }
+
   /* ======================= */
   /* ABOUT FIX               */
   /* ======================= */
@@ -1115,6 +1122,7 @@ section {
   #slides {
     display: flex;
     transition: transform 0.4s ease;
+    gap: 0;
   }
 
   #slides img,
@@ -1135,9 +1143,13 @@ section {
     padding: 2px;   /* 아주 얇게만 여백 */
   }
 
-  .slide {
-    padding: 0;
-  }
+.slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;          /* 오른쪽 여백 있으면 지우기 */
+  box-sizing: border-box;
+}
 
   /* ============================================= */
   /* 슬라이드 버튼 – 화면 중앙 좌/우, JS visibility 존중 */
@@ -1152,7 +1164,7 @@ section {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(26, 20, 16, 0.35);
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
@@ -1211,3 +1223,4 @@ section {
     font-size: 0.75em !important;
   }
 }
+
