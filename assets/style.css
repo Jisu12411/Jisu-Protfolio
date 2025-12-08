@@ -919,7 +919,7 @@ section {
 @media (max-width: 640px) {
 
   /* ======================= */
-  /* GLOBAL RESET / FIXES */
+  /* GLOBAL RESET / FIXES    */
   /* ======================= */
   html,
   body {
@@ -962,20 +962,20 @@ section {
   }
 
   /* ======================================= */
-  /* 1. 메인화면 세로 가운데 / 가로는 왼쪽 정렬 */
+  /*  메인화면 세로 가운데 / 가로는 왼쪽 정렬  */
   /* ======================================= */
   #hero {
-    min-height: 100vh;                 /* 첫 화면 꽉 차게 */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;           /* 세로 기준 가운데 */
-    align-items: flex-start;           /* 가로 기준 왼쪽 정렬 유지 */
+    justify-content: center;
+    align-items: flex-start;
     padding-top: 0;
     padding-bottom: 0;
   }
 
   /* ======================= */
-  /* ABOUT FIX */
+  /* ABOUT FIX               */
   /* ======================= */
   #about.section {
     padding-left: 16px !important;
@@ -998,18 +998,29 @@ section {
     gap: 16px;
   }
 
-  /* (기존) 제목/내용 크기 조정은 유지되지만
-     아래에서 다시 덮어쓰므로 따로 수정 안 함 */
+  /* ------------------------------ */
+  /* Education / Work / Skills 제목 */
+  /* ------------------------------ */
+  /* (두번째 스샷 요구사항) 제목 1.4배 */
+  .about-bottom-info h4,
+  .skills-card h4 {
+    font-size: 1.4em !important;
+  }
+
+  /* Education / Work 내용 0.65배로 더 줄이기 */
+  .about-bottom-info li {
+    font-size: 0.65em !important;
+    line-height: 1.4;
+  }
 
   /* ======================= */
-  /* 4. SKILLS: 6개씩 보기  */
+  /* SKILLS: 6개씩 보기      */
   /* ======================= */
   .skills-grid {
     grid-template-columns: repeat(6, 1fr) !important;
     gap: 6px;
   }
 
-  /* 각 스킬 개체 크기 줄여서 한 줄에 6개 딱 맞추기 */
   .skill-pill {
     padding: 6px;
     min-width: 0 !important;
@@ -1020,8 +1031,9 @@ section {
     height: auto;
   }
 
+  /* 스킬 텍스트 0.75배 정도로 축소 */
   .skill-pill span {
-    font-size: 10px !important;
+    font-size: 0.75em !important;
   }
 
 
@@ -1039,7 +1051,7 @@ section {
     display: block;
   }
 
-  /* 1. 썸네일 박스 정사각형 + 이미지 전체 보이도록 (더 강하게) */
+  /* 썸네일 박스 정사각형 + 이미지 전체 보이도록 */
   .gallery-thumb {
     width: 100% !important;
     aspect-ratio: 1 / 1;
@@ -1050,13 +1062,13 @@ section {
     border-radius: 14px;
   }
 
-  /* 2. 프로젝트 카드 제목/설명 글씨 크기 */
+  /* 프로젝트 카드 제목/설명 글씨 크기 */
   .gallery-card h3 {
-    font-size: 1.25em !important;   /* 제목 1.25배 */
+    font-size: 1.25em !important;
   }
 
   .gallery-card p {
-    font-size: 0.75em !important;   /* 설명 0.75배 */
+    font-size: 0.75em !important;
   }
 
 
@@ -1064,13 +1076,22 @@ section {
   /* PROJECT DETAIL HEADER   */
   /* ======================= */
 
-  /* 5. 헤더 상단 마진 조금 더, 하단은 조금 줄이기 */
   .page-hero {
-    padding: 36px 20px 18px 20px;  /* top 36, bottom 18 */
+    padding: 36px 20px 18px 20px;  /* 상단 약간 더, 하단 조금 줄임 */
     grid-template-columns: 1fr;
   }
 
-  /* 6. desc 0.9배 (다시 한 번 확실히 고정) */
+  /* [첫번째 이미지] 1. PROJECT · MAIN BANNER 0.75배 */
+  .breadcrumb {
+    font-size: 0.75em !important;
+  }
+
+  /* [첫번째 이미지] 2. 메인 배너 타이틀 1.4배 */
+  .page-title {
+    font-size: 1.4em !important;
+  }
+
+  /* [첫번째 이미지] 3. desc 0.9배 */
   .page-hero-right {
     text-align: left !important;
     font-size: 0.9em !important;
@@ -1078,29 +1099,17 @@ section {
     line-height: 1.5;
   }
 
-  /* Education, Work Experience, Skills 제목/크기 조정 */
-  /* 3. Education / Work Experience 글씨 0.75배 */
-  .about-bottom-info h4 {
-    font-size: 0.75em !important;
-  }
-
-  /* 4. Skills 제목도 위와 동일한 크기 */
-  .skills-card h4 {
-    font-size: 0.75em !important;
-  }
-
 
   /* ======================= */
   /* SLIDER (DETAIL)        */
   /* ======================= */
 
-  /* JS로 width 변경돼도 항상 100% 유지 */
   .slider {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden;
-    /* 9. 패딩을 더 줄이기 (기존의 절반 수준) */
-    padding: 5px;
+    padding: 5px;              /* 이미지 박스와 여백 줄이기 */
+    height: auto !important;   /* JS가 넣는 여분 높이(+60px) 제거 */
   }
 
   #slides {
@@ -1115,22 +1124,23 @@ section {
     width: 100% !important;
     height: auto !important;
     flex-shrink: 0;
+    display: block;
   }
 
-  /* 7. 이미지가 박스 안에서 정확히 가운데 오도록 */
+  /* 이미지가 박스 안에서 정확히 가운데 오도록 */
   .slide-visual {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px; /* 기존보다 절반 수준으로 줄인 여백 */
+    padding: 2px;   /* 아주 얇게만 여백 */
   }
 
   .slide {
-    padding: 0; /* 불필요한 바깥 여백 제거 */
+    padding: 0;
   }
 
   /* ============================================= */
-  /* 버튼을 화면 기준 중앙 좌/우 고정 (기존 유지)  */
+  /* 슬라이드 버튼 – 화면 중앙 좌/우, JS visibility 존중 */
   /* ============================================= */
 
   .slider__control {
@@ -1148,20 +1158,20 @@ section {
     font-size: 24px !important;
     z-index: 9999 !important;
     pointer-events: auto !important;
-    visibility: visible !important;
+    /* ⚠ visibility는 JS에서 'hidden/visible'로 제어하므로
+       여기서는 강제로 지정하지 않는다. */
   }
 
   .slider__control.prev {
-    left: 8px !important;  /* 화면 왼쪽 */
+    left: 8px !important;
     right: auto !important;
   }
 
   .slider__control.next {
-    right: 8px !important; /* 화면 오른쪽 */
+    right: 8px !important;
     left: auto !important;
   }
 
-  /* JS가 숨김 처리하는 visibility는 그대로 반영 */
   .slider__control.is-disabled,
   .slider__control.disabled {
     opacity: 0 !important;
