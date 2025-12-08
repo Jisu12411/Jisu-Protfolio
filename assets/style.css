@@ -974,9 +974,40 @@ section {
     padding-bottom: 0;
   }
 
+    #hero .hero-subtitle {
+    font-size: 0.75em !important;
+  }
+
+  #hero .hero-title {
+    font-size: 1.6em !important;
+  }
+
+  #hero .hero-desc {
+    font-size: 0.8em !important;
+    line-height: 1.5;
+  }
+
   /* ======================= */
   /* ABOUT FIX               */
   /* ======================= */
+
+    .about-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* 1:1 비율 */
+    gap: 16px;
+    align-items: center;
+  }
+
+  .about-profile .profile-photo {
+    width: 100%;
+  }
+
+  .about-profile .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
   #about.section {
     padding-left: 16px !important;
     padding-right: 16px !important;
@@ -1107,7 +1138,7 @@ section {
   .slider {
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden;
+    overflow: hidden !important;
     padding: 5px;              /* 이미지 박스와 여백 줄이기 */
     height: auto !important;   /* JS가 넣는 여분 높이(+60px) 제거 */
   }
@@ -1117,12 +1148,18 @@ section {
     transition: transform 0.4s ease;
   }
 
+  
+  #slides .slide {
+    overflow: hidden !important;
+  }
+
   #slides img,
   #slides .mock-image,
   .mock-image,
   .mock-image.real {
     width: 100% !important;
     height: auto !important;
+    object-fit: contain !important;  /* 찌그러짐 방지 */
     flex-shrink: 0;
     display: block;
   }
@@ -1152,7 +1189,7 @@ section {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(90, 70, 50, 0.45);
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
@@ -1211,3 +1248,4 @@ section {
     font-size: 0.75em !important;
   }
 }
+
