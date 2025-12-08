@@ -919,25 +919,22 @@ section {
 
   /* ===== NAV ===== */
   .nav {
-    padding: 10px 16px;
-    justify-content: space-between;
+    padding: 10px 14px;
+  }
+
+  .nav__brand {
+    font-size: 1rem;
   }
 
   .nav__menu {
-    gap: 12px;
+    gap: 10px;
     font-size: 0.85rem;
   }
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 70vh;
-    padding: 90px 20px 50px;
-    align-items: flex-start;
-  }
-
-  .hero__content {
-    max-width: 100%;
-    gap: 10px;
+    padding: 80px 20px 50px;
+    min-height: 60vh;
   }
 
   .hero__title {
@@ -946,60 +943,59 @@ section {
   }
 
   .hero__desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.55;
   }
-
-  .scroll-indicator {
-    bottom: 18px;
-    font-size: 0.75rem;
-  }
-
 
   /* ===== ABOUT ===== */
   .about--new {
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 0 10px;
-  }
-
-  .about__left {
-    padding: 12px;
   }
 
   .about__photo img {
-    max-width: 220px;
-    aspect-ratio: 1 / 1.2;
-    border-radius: 16px;
+    max-width: 200px;
+    border-radius: 14px;
   }
 
   .basic-info-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 6px;
   }
 
   .about-bottom-info {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
+  /* ===== SKILLS ===== */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
 
-  /* ===== PROJECT LIST ===== */
+  .skill-pill span {
+    font-size: 0.75rem;
+  }
+
+  /* ===== PROJECT LIST (INDEX) ===== */
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
 
   .gallery-card {
-    padding: 14px;
+    padding: 12px;
     border-radius: 14px;
   }
 
-  /* 정사각형 썸네일 */
+  /* 썸네일 정사각형 고정 */
   .gallery-thumb {
     width: 100%;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
   }
 
   .gallery-card h3 {
@@ -1007,92 +1003,115 @@ section {
     font-size: 1rem;
   }
 
+  .gallery-card p {
+    font-size: 0.85rem;
+  }
 
-  /* ===== PROJECT DETAIL PAGE ===== */
-
-  /* 헤더 + 타이틀 */
+  /* ===== DETAIL PAGE: PAGE HERO ===== */
   .page-hero {
     grid-template-columns: 1fr;
+    padding: 30px 20px;
     text-align: left;
-    padding: 32px 16px;
   }
 
-  .page-hero-right {
-    margin-top: 12px;
+  .page-title {
+    font-size: 1.4rem;
   }
 
-  /* 슬라이더 */
+  .page-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* ===== DETAIL PAGE: SLIDER ===== */
   .slider {
     width: 100%;
-    border-radius: 14px;
+    margin: 0 auto;
+    border-radius: 12px;
     position: relative;
   }
 
-  .slide-visual img,
+  .slides img,
   .mock-image.real,
   .mock-image {
     width: 100%;
-    max-width: 100%;
     height: auto !important;
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
-  /* 슬라이드 버튼 */
-  #prev-btn, #next-btn {
+  /* 슬라이드 버튼 — 작게 + 중앙 정렬 */
+  .slider__control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #fff;
-    width: 36px;
-    height: 36px;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    padding: 6px 10px;
+    font-size: 20px;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
-    z-index: 50;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 20;
   }
 
-  #prev-btn { left: 8px; }
-  #next-btn { right: 8px; }
+  .slider__control.prev { left: 8px; }
+  .slider__control.next { right: 8px; }
 
-  /* 상세페이지의 롱 이미지 올라갈 때 여백 */
-  .detail-image-wrapper img {
-    width: 100%;
-    border-radius: 14px;
+  .slider__control:hover {
+    background: #fff;
   }
 
-  /* 프로젝트 메타 (정보 박스) */
+  /* ===== DETAIL PAGE: META TEXT ===== */
   .project-meta {
+    padding: 20px;
+    font-size: 0.9rem;
     grid-template-columns: 1fr;
-    gap: 10px;
   }
 
-  /* 프로젝트 하단 네비게이션 (가로 정렬로 변경) */
-  .project-nav {
+  /* ===== DETAIL PAGE: BOTTOM PROJECT BUTTONS ===== */
+  .other-projects {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 30px;
   }
 
-  .project-nav button {
-    writing-mode: horizontal-tb; /* 가로 정렬 */
-    font-size: 0.95rem;
-    padding: 10px 14px;
-    border-radius: 12px;
+  .other-projects a {
+    padding: 12px 18px;
+    background: #fdfbf8;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
   }
-
 
   /* ===== FOOTER ===== */
   .footer {
     grid-template-columns: 1fr;
-    padding: 32px 16px;
-    text-align: left;
+    padding: 35px 20px;
     gap: 24px;
+    text-align: left;
+  }
+
+  .footer__brand {
+    font-size: 1.2rem;
+  }
+
+  .footer__desc {
+    font-size: 0.85rem;
   }
 
   .footer__title {
-    margin-top: 8px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .footer__list {
+    font-size: 0.85rem;
   }
 }
+
 
 
 
