@@ -152,7 +152,8 @@ const updateHeight = () => {
   }
 
   if (h > 0) {
-    sliderEl.style.height = `${h + 60}px`;
+    const extra = window.innerWidth <= 640 ? 10 : 30;
+    sliderEl.style.height = `${h + extra}px`;
     updateButtonPosition();
   } else {
     requestAnimationFrame(updateHeight);
@@ -227,5 +228,6 @@ function init() {
 }
 
 init();
+
 
 
