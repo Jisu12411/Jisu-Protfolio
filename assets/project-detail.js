@@ -142,16 +142,22 @@ function applySlideLayout() {
   const img = currentSlideEl.querySelector('img, .mock-image');
   if (!img) return;
 
-  const updateHeight = () => {
-    const h = img.offsetHeight;
+const updateHeight = () => {
+  const h = img.offsetHeight;
 
-    if (h > 0) {
-      sliderEl.style.height = `${h + 60}px`;
-      updateButtonPosition();
-    } else {
-      requestAnimationFrame(updateHeight);
-    }
-  };
+  if (currentProject.slug === 'main-banner') {
+    sliderEl.style.height = 'auto';
+    updateButtonPosition();
+    return;
+  }
+
+  if (h > 0) {
+    sliderEl.style.height = `${h + 60}px`;
+    updateButtonPosition();
+  } else {
+    requestAnimationFrame(updateHeight);
+  }
+};
 
   if (img.complete) {
     requestAnimationFrame(updateHeight);
@@ -221,4 +227,5 @@ function init() {
 }
 
 init();
+
 
