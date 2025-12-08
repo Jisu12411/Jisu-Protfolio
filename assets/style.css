@@ -911,5 +911,140 @@ section {
     height: auto;
     object-fit: contain;
 }
+/* ============================= */
+/*      ★ MOBILE REDESIGN ★      */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* ===== NAV ===== */
+  .nav {
+    padding: 10px 16px;
+    justify-content: space-between;
+  }
+
+  .nav__menu {
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 70vh;
+    padding: 100px 20px 60px;
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .hero__title {
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
+  .hero__desc {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+    font-size: 0.8rem;
+  }
+
+
+  /* ===== ABOUT ===== */
+  .about--new {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about__left {
+    padding: 16px;
+  }
+
+  .about__photo img {
+    max-width: 240px;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 16px;
+  }
+
+  .basic-info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about-bottom-info {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ===== PROJECT LIST ===== */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .gallery-thumb {
+    height: 150px;
+  }
+
+  .gallery-card h3 {
+    margin-top: 14px;
+    font-size: 1.1rem;
+  }
+
+
+  /* ===== PROJECT DETAIL PAGE ===== */
+  .page-hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 40px 20px;
+  }
+
+  .page-hero-right {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .slider {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .slide-visual img,
+  .mock-image.real,
+  .mock-image {
+    max-width: 100%;
+    height: auto !important;
+    border-radius: 12px;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ===== FOOTER ===== */
+  .footer {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .footer__title {
+    margin-top: 10px;
+  }
+}
+
 
 
