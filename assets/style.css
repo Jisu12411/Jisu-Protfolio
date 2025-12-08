@@ -913,13 +913,13 @@ section {
 }
 
 /* ======================================= */
-/*               MOBILE (≤640px)           */
+/* MOBILE (≤640px) */
 /* ======================================= */
 
 @media (max-width: 640px) {
 
   /* ======================= */
-  /*  GLOBAL RESET / FIXES   */
+  /* GLOBAL RESET / FIXES */
   /* ======================= */
   html,
   body {
@@ -950,30 +950,33 @@ section {
     height: auto;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-size: 0.85em !important;
   }
 
-
-  /* ======================================= */
-  /*      1. 메인화면 가운데 정렬 / 꽉 채우기 */
-  /* ======================================= */
-
-  #hero {
-    height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 0 16px !important;
+  .section__title {
+    font-size: 20px !important;
   }
 
-
   /* ======================================= */
-  /*         ABOUT SECTION (2,3번 포함)      */
+  /* 1. 메인화면 세로 가운데 / 가로는 왼쪽 정렬 */
   /* ======================================= */
+  #hero {
+    min-height: 100vh;                 /* 첫 화면 꽉 차게 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;           /* 세로 기준 가운데 */
+    align-items: flex-start;           /* 가로 기준 왼쪽 정렬 유지 */
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
+  /* ======================= */
+  /* ABOUT FIX */
+  /* ======================= */
   #about.section {
     padding-left: 16px !important;
     padding-right: 16px !important;
@@ -984,37 +987,39 @@ section {
     gap: 20px;
   }
 
-  /* (2) Education / WorkExperience 제목 1.25배 */
+  .basic-info-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .about-bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* 2. Education / Work Experience 제목 1.25배 */
   .about-bottom-info h4 {
     font-size: 1.25em !important;
   }
 
-  /* (3) 내용 0.75배 */
+  /* 3. 기간/내용 0.75배 */
   .about-bottom-info li {
     font-size: 0.75em !important;
-    line-height: 1.4;
   }
 
-
-  /* ======================================= */
-  /*        4. SKILLS – 6개씩 정렬            */
-  /* ======================================= */
-
+  /* ======================= */
+  /* 4. SKILLS: 6개씩 보기 */
+  /* ======================= */
   .skills-grid {
-    display: grid;
     grid-template-columns: repeat(6, 1fr) !important;
     gap: 8px;
   }
 
-  .skill-pill span {
-    font-size: 11px !important;
-  }
 
-
-  /* ======================================= */
-  /*       PROJECT LIST (5번 포함)           */
-  /* ======================================= */
-
+  /* ======================= */
+  /* PROJECT LIST */
+  /* ======================= */
   .gallery-grid {
     display: flex;
     flex-direction: column;
@@ -1026,55 +1031,55 @@ section {
     display: block;
   }
 
-  /* (5) 썸네일 정사각형 + 잘림 없이 보여주기 */
+  /* 5. 썸네일 박스 정사각형 + 이미지 전체 보이도록 */
   .gallery-thumb {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-size: contain !important;
-    background-position: center center !important;
+    background-size: contain !important;        /* 이미지 전체가 보이도록 */
+    background-position: center !important;
     background-repeat: no-repeat !important;
     border-radius: 14px;
-    overflow: hidden;
   }
 
 
-  /* ======================================= */
-  /*   PROJECT DETAIL HEADER (6,7,8번 포함)  */
-  /* ======================================= */
+  /* ======================= */
+  /* PROJECT DETAIL HEADER   */
+  /* ======================= */
 
-  /* (6) 상단 breadcrumb 0.75배 */
+  .page-hero {
+    padding: 30px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  /* 6. project · main banner 0.75배 */
   .breadcrumb {
     font-size: 0.75em !important;
   }
 
-  /* (7) 메인 타이틀 1.75배 */
+  /* 7. 메인 타이틀 1.5배 */
   .page-title {
-    font-size: 1.75em !important;
+    font-size: 1.5em !important;
   }
 
-  /* (8) desc 0.9배 */
+  /* 8. desc 0.9배 */
   .page-hero-right {
     text-align: left !important;
     font-size: 0.9em !important;
-    line-height: 1.45;
     padding-right: 10px;
   }
 
-  .page-hero {
-    padding: 20px 16px !important;
-    grid-template-columns: 1fr;
-  }
 
+  /* ======================= */
+  /* SLIDER (DETAIL)        */
+  /* ======================= */
 
-  /* ======================================= */
-  /*       SLIDER (DETAIL) (9번 포함)         */
-  /* ======================================= */
-
+  /* JS로 width 변경돼도 항상 100% 유지 */
   .slider {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden;
-    padding: 10px !important;  /* 기존의 1/3 수준으로 축소됨 */
+    /* 9. 이미지와 박스 사이 패딩을 기존의 1/3 수준으로 축소 (대략 10px) */
+    padding: 10px;
   }
 
   #slides {
@@ -1091,37 +1096,49 @@ section {
     flex-shrink: 0;
   }
 
-  /* 슬라이드 버튼 화면기준 중앙고정 */
+  /* ============================================= */
+  /* 버튼을 화면 기준 중앙 좌/우 고정 (기존 유지)  */
+  /* ============================================= */
+
   .slider__control {
-    position: fixed !important;
-    top: 50% !important;
+    position: fixed !important; /* 화면 기준 배치 */
+    top: 50% !important;        /* 화면 세로 중앙 */
     transform: translateY(-50%) !important;
     width: 40px !important;
     height: 40px !important;
-
     display: flex !important;
     align-items: center;
     justify-content: center;
-
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
     color: #fff !important;
     border-radius: 50%;
     font-size: 24px !important;
     z-index: 9999 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
   }
 
   .slider__control.prev {
-    left: 8px !important;
+    left: 8px !important;  /* 화면 왼쪽 */
+    right: auto !important;
   }
+
   .slider__control.next {
-    right: 8px !important;
+    right: 8px !important; /* 화면 오른쪽 */
+    left: auto !important;
+  }
+
+  /* JS가 숨김 처리하는 visibility는 그대로 반영 */
+  .slider__control.is-disabled,
+  .slider__control.disabled {
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
 
-  /* ======================================= */
-  /*  DETAIL PAGE BUTTONS (변경 없음)         */
-  /* ======================================= */
-
+  /* ======================= */
+  /* DETAIL PAGE BUTTONS     */
+  /* ======================= */
   .project-links {
     display: flex;
     gap: 10px;
@@ -1134,22 +1151,21 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 8px 10px;
-    min-width: 100px;
+    min-width: 110px;
     max-width: 33%;
     font-size: 12px !important;
     white-space: nowrap !important;
-
     border-radius: 10px;
+    text-align: center;
   }
 
 
-  /* ======================================= */
-  /*       10. FOOTER DESC 0.75배             */
-  /* ======================================= */
-
+  /* ======================= */
+  /* 10. FOOTER DESC 0.75배  */
+  /* ======================= */
   .footer__desc {
     font-size: 0.75em !important;
   }
 }
+
