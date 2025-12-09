@@ -133,7 +133,6 @@ function updateSlidePosition(isFirst = false) {
 
 
  // 현재 슬라이드 width에 맞춘 레이아웃 적용
-
 function applySlideLayout() {
   const slideData = currentProject.slides[currentIndex];
   sliderEl.style.width = slideData.width || '100%';
@@ -142,26 +141,23 @@ function applySlideLayout() {
   const img = currentSlideEl.querySelector('img, .mock-image');
   if (!img) return;
 
-  const updateHeight = () => {
-    const h = img.offsetHeight;
+const updateHeight = () => {
+  const h = img.offsetHeight;
+
+  if (currentProject.slug === 'main-banner') {
+    sliderEl.style.height = 'auto';
+    updateButtonPosition();
+    return;
+  }
 
   if (h > 0) {
-  
-    // ⭐ 모바일에서는 이미지 아래 여백 때문에 height 강제 금지
-    if (window.innerWidth <= 640) {
-      sliderEl.style.height = 'auto';
-      updateButtonPosition();
-      return;
-    }
-  
-    const extra = 30;
+    const extra = window.innerWidth <= 640 ? 10 : 30;
     sliderEl.style.height = `${h + extra}px`;
     updateButtonPosition();
-    } else {
-      // 이미지 높이를 아직 못 읽었으면 다음 프레임에서 다시 시도
-      requestAnimationFrame(updateHeight);
-    }
-  };
+  } else {
+    requestAnimationFrame(updateHeight);
+  }
+};
 
   if (img.complete) {
     requestAnimationFrame(updateHeight);
@@ -231,6 +227,7 @@ function init() {
 }
 
 init();
+
 
 
 
