@@ -145,11 +145,18 @@ function applySlideLayout() {
   const updateHeight = () => {
     const h = img.offsetHeight;
 
-    if (h > 0) {
-      // ✅ 모바일일 때 여백을 4px로 줄여서 지금의 약 1/3 수준만 남기기
-      const extra = window.innerWidth <= 640 ? 4 : 30;
-      sliderEl.style.height = `${h + extra}px`;
+  if (h > 0) {
+  
+    // ⭐ 모바일에서는 이미지 아래 여백 때문에 height 강제 금지
+    if (window.innerWidth <= 640) {
+      sliderEl.style.height = 'auto';
       updateButtonPosition();
+      return;
+    }
+  
+    const extra = 30;
+    sliderEl.style.height = `${h + extra}px`;
+    updateButtonPosition();
     } else {
       // 이미지 높이를 아직 못 읽었으면 다음 프레임에서 다시 시도
       requestAnimationFrame(updateHeight);
@@ -224,6 +231,7 @@ function init() {
 }
 
 init();
+
 
 
 
