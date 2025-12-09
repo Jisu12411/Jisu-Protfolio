@@ -1115,6 +1115,7 @@ section {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden;
+    padding: 5px !important;
   }
 
   #slides {
@@ -1220,5 +1221,6 @@ section {
     font-size: 0.75em !important;
   }
 }
+
 
 
