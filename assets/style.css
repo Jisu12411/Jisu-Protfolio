@@ -929,6 +929,10 @@ section {
     font-size: 14px;
   }
 
+  .page {
+    padding: 10px 0 !important;
+}
+
   .page,
   .section,
   .section-inner,
@@ -1221,6 +1225,7 @@ section {
     font-size: 0.75em !important;
   }
 }
+
 
 
 
