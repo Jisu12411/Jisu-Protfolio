@@ -146,7 +146,7 @@ function applySlideLayout() {
     const h = img.offsetHeight;
 
     if (h > 0) {
-      sliderEl.style.height = `${h + 60}px`;
+      sliderEl.style.height = `${h + 58}px`;
       updateButtonPosition();
     } else {
       requestAnimationFrame(updateHeight);
@@ -221,5 +221,6 @@ function init() {
 }
 
 init();
+
 
 
