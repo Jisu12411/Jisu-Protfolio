@@ -929,10 +929,6 @@ section {
     font-size: 14px;
   }
 
-  .page {
-    padding: 10px 0 !important;
-}
-
   .page,
   .section,
   .section-inner,
@@ -1119,7 +1115,6 @@ section {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden;
-    padding: 5px !important;
   }
 
   #slides {
@@ -1128,6 +1123,7 @@ section {
     gap: 0;
   }
 
+  #slides img,
   #slides .mock-image,
   .mock-image,
   .mock-image.real {
@@ -1139,14 +1135,9 @@ section {
 
   /* 이미지가 박스 안에서 정확히 가운데 오도록 */
   .slide-visual {
-    height: 38vw !important;
-    overflow: hidden !important;
-  }
-
-    .slide-visual img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 .slide {
@@ -1229,8 +1220,3 @@ section {
     font-size: 0.75em !important;
   }
 }
-
-
-
-
-
