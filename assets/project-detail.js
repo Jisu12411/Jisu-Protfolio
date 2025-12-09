@@ -142,23 +142,19 @@ function applySlideLayout() {
   const img = currentSlideEl.querySelector('img, .mock-image');
   if (!img) return;
 
-const updateHeight = () => {
-  const h = img.offsetHeight;
+  const updateHeight = () => {
+    const h = img.offsetHeight;
 
-  if (currentProject.slug === 'main-banner') {
-    sliderEl.style.height = 'auto';
-    updateButtonPosition();
-    return;
-  }
-
-  if (h > 0) {
-    const extra = window.innerWidth <= 640 ? 10 : 30;
-    sliderEl.style.height = `${h + extra}px`;
-    updateButtonPosition();
-  } else {
-    requestAnimationFrame(updateHeight);
-  }
-};
+    if (h > 0) {
+      // ✅ 모바일일 때 여백을 4px로 줄여서 지금의 약 1/3 수준만 남기기
+      const extra = window.innerWidth <= 640 ? 4 : 30;
+      sliderEl.style.height = `${h + extra}px`;
+      updateButtonPosition();
+    } else {
+      // 이미지 높이를 아직 못 읽었으면 다음 프레임에서 다시 시도
+      requestAnimationFrame(updateHeight);
+    }
+  };
 
   if (img.complete) {
     requestAnimationFrame(updateHeight);
@@ -228,6 +224,7 @@ function init() {
 }
 
 init();
+
 
 
 
