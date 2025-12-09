@@ -34,10 +34,7 @@ section {
   width: 100%;
 }
 
-/* ========================= */
 /* ======  NAV BAR  ======== */
-/* ========================= */
-
 .nav {
   position: fixed;
   top: 0;
@@ -89,10 +86,7 @@ section {
   color: #4d2c1f;
 }
 
-/* ========================= */
 /* =======  HERO  ========== */
-/* ========================= */
-
 .hero {
   min-height: 100vh;
   display: flex;
@@ -200,10 +194,7 @@ section {
   100% { transform: scaleX(0.4); opacity: 0.4; }
 }
 
-/* ========================= */
 /* =======  SECTION  ======= */
-/* ========================= */
-
 .section {
   padding: 120px 6vw;
   background: #fff;
@@ -217,10 +208,7 @@ section {
   text-transform: uppercase;
 }
 
-/* ========================= */
 /* ======== ABOUT ========= */
-/* ========================= */
-
 .about {
   display: grid;
   grid-template-columns: minmax(260px, 340px) 1fr;
@@ -343,10 +331,7 @@ section {
   font-size: 0.95rem;
 }
 
-/* ========================= */
 /* ====== PROJECTS ========= */
-/* ========================= */
-
 .section--muted {
   background: #faf7f4;
 }
@@ -432,10 +417,7 @@ section {
   color: #4a4a4a;
 }
 
-/* ========================= */
 /* ========= FOOTER ========= */
-/* ========================= */
-
 .footer {
   background: #362e2b;
   color: #f8f1ea;
@@ -473,10 +455,7 @@ section {
   text-transform: uppercase;
 }
 
-/* ========================================= */
 /* ============ PROJECT PAGE HERO ========== */
-/* ========================================= */
-
 .page-hero {
   padding: 60px 6vw 20px;
   display: grid;
@@ -526,10 +505,7 @@ section {
   padding: 50px 6vw 80px;
 }
 
-/* ========================================= */
 /* ============= PROJECT SLIDER ============ */
-/* ========================================= */
-
 .slider {
   max-width: 960px;
   width: 100%;
@@ -579,7 +555,6 @@ section {
   height: auto;
 }
 
-/* Mock image fallback */
 .mock-image {
   width: 100%;
   border-radius: 12px;
@@ -604,7 +579,6 @@ section {
   object-fit: contain;
 }
 
-/* Slide information */
 .slide-info {
   background: #ffffff;
   border: 1px solid var(--border-soft);
@@ -627,10 +601,8 @@ section {
   color: var(--muted);
 }
 
-/* ========================================= */
-/* ============ SLIDER CONTROLS ============ */
-/* ========================================= */
 
+/* ============ SLIDER CONTROLS ============ */
 .slider__control {
   position: fixed;
   top: 50%;
@@ -697,10 +669,8 @@ section {
   color: var(--muted);
 }
 
-/* ========================================= */
-/* ========== RESPONSIVE MEDIA QUERIES ===== */
-/* ========================================= */
 
+/* ==== RESPONSIVE MEDIA QUERIES ===== */
 @media (max-width: 1024px) {
 
   .skills-grid {
@@ -807,10 +777,8 @@ section {
   }
 }
 
-/* ========================================================= */
-/* ============= ABOUT — NEW LAYOUT STRUCTURE ============== */
-/* ========================================================= */
 
+/* ============= ABOUT — NEW LAYOUT STRUCTURE ============== */
 .about--new {
   display: grid;
   grid-template-columns: 380px 1fr;
@@ -824,7 +792,6 @@ section {
   align-self: stretch;
 }
 
-/* LEFT block */
 .about__left {
   display: flex;
   justify-content: center;
@@ -842,13 +809,11 @@ section {
   gap: 20px;
 }
 
-/* SKILLS top area */
 .skills-card {
   width: 100%;
   flex: 1;
 }
 
-/* Lower info boxes */
 .about-bottom-info {
   margin-top: auto;
   display: grid;
@@ -856,14 +821,12 @@ section {
   gap: 18px;
 }
 
-/* Basic info grid */
 .basic-info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px 18px;
 }
 
-/* Info box style */
 .info-box {
   background: #faf7f4;
   border: 1px solid var(--border-soft);
@@ -912,15 +875,12 @@ section {
     object-fit: contain;
 }
 
-/* ======================================= */
+/* =============================== */
 /* MOBILE (≤640px) */
-/* ======================================= */
+/* =============================== */
 
 @media (max-width: 640px) {
 
-  /* ======================= */
-  /* GLOBAL RESET / FIXES    */
-  /* ======================= */
   html,
   body {
     width: 100%;
@@ -961,9 +921,6 @@ section {
     font-size: 20px !important;
   }
 
-  /* ======================================= */
-  /*  메인화면 세로 가운데 / 가로는 왼쪽 정렬  */
-  /* ======================================= */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -976,14 +933,11 @@ section {
 
   #hero .hero__subtitle,
   #hero .hero__desc,
-  #hero .hero__meta,     /* 있으면 추가 */
-  #hero .hero__eyebrow { /* 상단 작은 텍스트 있으면 추가 */
-    font-size: 0.75em;   /* 기존 대비 0.75배 */
+  #hero .hero__meta,
+  #hero .hero__eyebrow {
+    font-size: 0.75em; 
   }
 
-  /* ======================= */
-  /* ABOUT FIX               */
-  /* ======================= */
   #about.section {
     padding-left: 16px !important;
     padding-right: 16px !important;
@@ -1005,24 +959,16 @@ section {
     gap: 16px;
   }
 
-  /* ------------------------------ */
-  /* Education / Work / Skills 제목 */
-  /* ------------------------------ */
-  /* (두번째 스샷 요구사항) 제목 1.4배 */
   .about-bottom-info h4,
   .skills-card h4 {
     font-size: 1.25em !important;
   }
 
-  /* Education / Work 내용 0.65배로 더 줄이기 */
   .about-bottom-info li {
     font-size: 0.75em !important;
     line-height: 1.4;
   }
 
-  /* ======================= */
-  /* SKILLS: 4개씩 보기      */
-  /* ======================= */
   .skills-grid {
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 6px;
@@ -1038,15 +984,10 @@ section {
     height: auto;
   }
 
-  /* 스킬 텍스트 0.75배 정도로 축소 */
   .skill-pill span {
     font-size: 0.5em !important;
   }
 
-
-  /* ======================= */
-  /* PROJECT LIST            */
-  /* ======================= */
   .gallery-grid {
     display: flex;
     flex-direction: column;
@@ -1058,7 +999,6 @@ section {
     display: block;
   }
 
-  /* 썸네일 박스 정사각형 + 이미지 전체 보이도록 */
   .gallery-thumb {
     width: 100% !important;
     aspect-ratio: 1 / 1;
@@ -1069,7 +1009,6 @@ section {
     border-radius: 14px;
   }
 
-  /* 프로젝트 카드 제목/설명 글씨 크기 */
   .gallery-card h3 {
     font-size: 1.10em !important;
   }
@@ -1078,38 +1017,25 @@ section {
     font-size: 0.75em !important;
   }
 
-
-  /* ======================= */
-  /* PROJECT DETAIL HEADER   */
-  /* ======================= */
-
   .page-hero {
-    padding: 36px 20px 18px 20px;  /* 상단 약간 더, 하단 조금 줄임 */
+    padding: 36px 20px 18px 20px;
     grid-template-columns: 1fr;
   }
 
-  /* [첫번째 이미지] 1. PROJECT · MAIN BANNER 0.75배 */
   .breadcrumb {
     font-size: 0.5em !important;
   }
 
-  /* [첫번째 이미지] 2. 메인 배너 타이틀 1.4배 */
   .page-title {
     font-size: 1.25em !important;
   }
 
-  /* [첫번째 이미지] 3. desc 0.9배 */
   .page-hero-right {
     text-align: left !important;
     font-size: 0.75em !important;
     padding-right: 10px;
     line-height: 1.5;
   }
-
-
-  /* ======================= */
-  /* SLIDER (DETAIL)        */
-  /* ======================= */
 
   .slider {
     width: 100% !important;
@@ -1133,7 +1059,6 @@ section {
     display: block;
   }
 
-  /* 이미지가 박스 안에서 정확히 가운데 오도록 */
   .slide-visual {
     display: flex;
     align-items: center;
@@ -1144,17 +1069,13 @@ section {
   flex: 0 0 100%;
   max-width: 100%;
   width: 100%;
-  margin: 0;          /* 오른쪽 여백 있으면 지우기 */
+  margin: 0;
   box-sizing: border-box;
 }
 
-  /* ============================================= */
-  /* 슬라이드 버튼 – 화면 중앙 좌/우, JS visibility 존중 */
-  /* ============================================= */
-
   .slider__control {
-    position: fixed !important; /* 화면 기준 배치 */
-    top: 50% !important;        /* 화면 세로 중앙 */
+    position: fixed !important;
+    top: 50% !important;
     transform: translateY(-50%) !important;
     width: 40px !important;
     height: 40px !important;
@@ -1167,8 +1088,6 @@ section {
     font-size: 24px !important;
     z-index: 9999 !important;
     pointer-events: auto !important;
-    /* ⚠ visibility는 JS에서 'hidden/visible'로 제어하므로
-       여기서는 강제로 지정하지 않는다. */
   }
 
   .slider__control.prev {
@@ -1187,10 +1106,6 @@ section {
     pointer-events: none !important;
   }
 
-
-  /* ======================= */
-  /* DETAIL PAGE BUTTONS     */
-  /* ======================= */
   .project-links {
     display: flex;
     gap: 10px;
@@ -1212,10 +1127,6 @@ section {
     text-align: center;
   }
 
-
-  /* ======================= */
-  /* FOOTER DESC 0.75배      */
-  /* ======================= */
   .footer__desc {
     font-size: 0.75em !important;
   }
